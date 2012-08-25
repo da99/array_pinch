@@ -1,0 +1,23 @@
+{
+  "name": "array_pinch",
+  "version": "0.0.1",
+  "description": "Remove a slice in an array that matches a pair of values/functions.",
+  "main": "lib/array_pinch.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/da99/array_pinch"
+  },
+  "keywords": [
+    "array",
+    "slice",
+    "pinch"
+  ],
+  "author": "da99",
+  "license": "BSD"
+}
