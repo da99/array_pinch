@@ -35,7 +35,17 @@ Installation & Usage
     pinch(hay).replace [ 2, 5 ], "missing"
     # ==> [ 1, "missing", 6 ]
 
+You also get `remove_all` and `replace_all`:
 
+    hay = [ 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 ]
+    
+    // You can use a regular array
+    pinch(hay).remove_all [ 2, 5 ]
+    # ==> [ 1, 6, 1, 6 ]
+   
+    pinch(hay).replace_all [ 2, 5 ], "missing"
+    # ==> [ 1, "missing", 6, 1, "missing", 6 ]
+    
 Using Functions for Comparison
 ==============================
 
