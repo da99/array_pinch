@@ -23,13 +23,18 @@ describe "array_pinch", () ->
     it "returns an object describing the slice", () ->
       results = pinch([1,2,3,4,5,6]).describe_slice [is_2, is_5]
 
-      assert_obj_equal results, {
+      target =
         slice:       [2,3,4,5],
         start_index: 1
         end_index:   5
         length:      4
         indexs:      [1, 2, 3, 4]
-      }
+      
+      keys        = (k for k, v of results).sort()
+      target_keys = (k for k, v of results).sort()
+      
+      assert_obj_equal results, target
+      assert.deepEqual keys, target_keys
 
     it "starts search based on given offset", () ->
       results = pinch([1,2,3,4,5,6,1,2,3,4,5,6]).describe_slice [is_2, is_5], 5
