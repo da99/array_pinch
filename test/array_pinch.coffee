@@ -93,12 +93,10 @@ describe "array_pinch", () ->
       results = pinch([ 1, 2, 3, 4, 5, 6 ]).replace [is_2, is_5], "missing"
       assert.deepEqual results, [ 1, "missing",  6 ]
 
-    it "replaces elements with return of callback", () ->
+    it "replaces slice with another slice: .replace [...], arg2, arg3, arg4", () ->
 
-      results = pinch([ 1, 2, 3, 4, 5, 6 ]).replace [ is_2, is_5 ], (slice, props) ->
-        slice.join(",")
-        
-      assert.deepEqual results, [ 1, "2,3,4,5",  6 ]
+      results = pinch([ 1, 2, 3, 4, 5, 6 ]).replace [ is_2, is_5 ], "two", "three", "four", "five"
+      assert.deepEqual results, [ 1, "two", "three", "four", "five",  6 ]
       
     it "returns a new array, not altering the original", () ->
       orig = [ 1, 2, 3, 4, 5, 6 ]

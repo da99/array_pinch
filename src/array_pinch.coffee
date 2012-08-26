@@ -75,7 +75,7 @@ class Pinch
   remove: (args...) ->
     @replace args...
     
-  replace: (finders, replace) ->
+  replace: (finders, replaces...) ->
     return @hay if @hay.length < finders.length
     arr = @hay.slice(0)
     i = -1
@@ -86,13 +86,8 @@ class Pinch
       meta = module.exports(arr).describe_slice(finders, i)
       break unless meta
       i = meta.end_index - 1
-      splice_args = [ meta.start_index, meta.length ]
-      
-      if typeof(replace) is 'function'
-        splice_args.push replace(meta.slice) 
-      else if typeof(replace) != 'undefined'
-        splice_args.push replace
-        
+      splice_args = [ meta.start_index, meta.length ].concat(replaces)
+
       arr.splice splice_args...
       l = arr.length
       break

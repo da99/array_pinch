@@ -61,8 +61,8 @@ You can also use a function for comparision:
     pinch(hay).remove [ is_2, is_5 ]
     # ==> [ 1,  6 ]
    
-    pinch(hay).replace [ is_2, is_5 ], "missing"
-    # ==> [ 1, "missing", 6 ]
+    pinch(hay).replace [ is_2, is_5 ], "two", "->", "five"
+    # ==> [ 1, "two", "->", "five", 6 ]
 
 The comparison function also accepts two other arguments:
 
