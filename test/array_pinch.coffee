@@ -15,6 +15,7 @@ assert_obj_equal = (a, b) =>
 describe "array_pinch", () ->
 
   describe ".describe_slice", () ->
+    
     it "returns null if slice is not found", () ->
       results = pinch([ 1, 3, 3, 4 ]).describe_slice [is_2, is_5]
       assert.equal results, null
@@ -23,10 +24,10 @@ describe "array_pinch", () ->
       results = pinch([1,2,3,4,5,6]).describe_slice [is_2, is_5]
 
       assert_obj_equal results, {
-        slice: [2,3,4,5],
+        slice:       [2,3,4,5],
         start_index: 1
-        end_index: 4
-        length: 4
+        end_index:   5
+        length:      4
       }
 
     it "starts search based on given offset", () ->
@@ -34,7 +35,7 @@ describe "array_pinch", () ->
       
       assert_obj_equal results, {
         start_index: 7,
-        end_index:   10,
+        end_index:   11,
         length:      4,
         slice:       [2,3,4,5]
       }
