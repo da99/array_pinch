@@ -28,6 +28,7 @@ describe "array_pinch", () ->
         start_index: 1
         end_index:   5
         length:      4
+        indexs:      [1, 2, 3, 4]
       }
 
     it "starts search based on given offset", () ->
@@ -37,7 +38,8 @@ describe "array_pinch", () ->
         start_index: 7,
         end_index:   11,
         length:      4,
-        slice:       [2,3,4,5]
+        slice:       [2, 3, 4, 5]
+        indexs:      [7, 8, 9, 10]
       }
      
     it "passes index of element to finder function", () ->

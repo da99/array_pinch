@@ -49,6 +49,7 @@ class Pinch
         final.end_index   = end_i
         final.slice       = arr.slice(start_i, end_i)
         final.length      = final.slice.length
+        final.indexs      = _.range( final.start_index, final.end_index )
         break
 
     return null if final.length is 0
