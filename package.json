@@ -1,6 +1,6 @@
 {
   "name": "array_pinch",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Remove a slice in an array that matches a pair of values/functions.",
   "main": "lib/array_pinch.js",
   "directories": {
