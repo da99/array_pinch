@@ -4,20 +4,21 @@ array\_pinch
 
 Find a slice in an array matching a start/end pair and remove or replace them.
 
+    pinch = require "pinch"
     arr = [1,2,3,4,5,6]
     pinch(arr).remove [3,5]
     # ===> [ 1, 2, 6 ]
 
-Differences with array\_surgeon
+Differences with: array\_surgeon
 ===============================
 
-The npm package, `array_surgeon`, requires you to be more explicit:
+The npm package, [array\_surgeon](https://npmjs.org/package/array_surgeon), 
+requires you to be define each element in the slice you want to find:
 
+    surgeon = require "surgeon"
     arr = [1,2,3,4,5,6]
     surgeon(arr).remove [3,4,5]
     # ===> [ 1, 2, 6 ]
-
-
 
 Installation & Usage
 ====
