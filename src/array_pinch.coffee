@@ -1,3 +1,4 @@
+_ = require "underscore"
 
 class Pinch
   @compare: (obj, target, i, count) ->
@@ -53,6 +54,23 @@ class Pinch
     return null if final.length is 0
     final
 
+  alter_all: (meth, args...) ->
+    new_arr = @hay
+    alter = () ->
+      new_arr = module.exports(new_arr)[meth](args...)
+      new_arr
+    
+    while !_.isEqual(new_arr, alter())
+      new_arr
+
+    new_arr
+
+  remove_all: (args...) ->
+    @alter_all("remove", args...)
+    
+  replace_all: (args...) ->
+    @alter_all "replace", args...
+
   remove: (args...) ->
     @replace args...
     
@@ -76,6 +94,7 @@ class Pinch
         
       arr.splice splice_args...
       l = arr.length
+      break
 
     arr
 

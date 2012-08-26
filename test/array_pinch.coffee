@@ -61,12 +61,24 @@ describe "array_pinch", () ->
       pinch([0,2,4,6,8]).describe_slice [is_2, is_6]
       assert.deepEqual i_s, [0,0,1,2]
 
+  describe ".replace_all", () ->
+    
+    it "replaces all sequences", () ->
+      hay = [ 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 ]
+      results = pinch(hay).replace_all [ is_2, is_5 ], "gone"
+      assert.deepEqual results, [ 1, "gone", 6, 1, "gone", 6 ]
+      
   describe ".replace", () ->
     
     it "replaces elements", () ->
 
       results = pinch([ 1, 2, 3, 4, 5 ]).replace [ 2, 4 ], "missing"
       assert.deepEqual results, [ 1, "missing",  5 ]
+
+    it "replaces only one sequence", () ->
+      hay = [ 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 ]
+      results = pinch(hay).replace [ is_2, is_5 ], "gone"
+      assert.deepEqual results, [ 1, "gone", 6, 1, 2, 3, 4, 5, 6 ]
     
     it "replaces elements using functions for comparison", () ->
 
@@ -80,7 +92,6 @@ describe "array_pinch", () ->
         
       assert.deepEqual results, [ 1, "2,3,4,5",  6 ]
       
-
     it "returns a new array, not altering the original", () ->
       orig = [ 1, 2, 3, 4, 5, 6 ]
       target = orig.slice(0)
@@ -88,6 +99,12 @@ describe "array_pinch", () ->
         
       assert.deepEqual orig, target
       
+  describe ".remove_all", () ->
+    
+    it "removes all sequences", () ->
+      hay = [ 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6 ]
+      results = pinch(hay).remove_all [ is_2, is_5 ]
+      assert.deepEqual results, [ 1, 6, 1, 6 ]
 
   describe ".remove", () ->
     
